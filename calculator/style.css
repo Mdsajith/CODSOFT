@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.calculator-container {
+    padding: 20px;
+}
+
+.calculator {
+    background-color: #222;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+}
+
+
+.display {
+    background-color: #1a1a1a;
+    padding: 30px;
+    text-align: right;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous-operand {
+    color: #888;
+    font-size: 1.2rem;
+    min-height: 1.5rem;
+}
+
+.current-operand {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background-color: #111;
+    padding: 1px;
+}
+
+
+.btn {
+    background-color: #333;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 400;
+}
+
+.btn:hover {
+    background-color: #444;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+
+.btn-number {
+    background-color: #505050;
+}
+
+.btn-number:hover {
+    background-color: #606060;
+}
+
+
+.btn-operator {
+    background-color: #ff9500;
+    font-size: 2rem;
+}
+
+.btn-operator:hover {
+    background-color: #ffb143;
+}
+
+
+.btn-function {
+    background-color: #a6a6a6;
+    color: #000;
+    font-weight: 500;
+}
+
+.btn-function:hover {
+    background-color: #b8b8b8;
+}
+
+
+.btn-equals {
+    background-color: #04c65f;
+    grid-column: span 2;
+    font-size: 2rem;
+}
+
+.btn-equals:hover {
+    background-color: #06d66a;
+}
+
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+
+@media (max-width: 500px) {
+    .calculator {
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .btn {
+        padding: 25px;
+        font-size: 1.5rem;
+    }
+
+    .current-operand {
+        font-size: 2rem;
+    }
+
+    .previous-operand {
+        font-size: 1rem;
+    }
+}
+
+
+@keyframes buttonPress {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn:active {
+    animation: buttonPress 0.1s ease;
+}
+
+
+.display.error .current-operand {
+    color: #ff4444;
+}
